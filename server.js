@@ -44,6 +44,10 @@ app.get('/api/members', function(request, response) {
   });
 });
 
+app.post('api/members', function(request, response) {
+  var member = new Members(request.body);
+});
+
 
 var port = 3000;
 
