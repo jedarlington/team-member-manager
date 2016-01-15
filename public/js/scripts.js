@@ -1,3 +1,6 @@
+// Alter backbone so it looks for _id sey by mongodb instead of looking for id which is the backbone default
+Backbone.Model.prototype.idAttribute = '_id';
+
 /**
  * MODELS
  */
@@ -70,6 +73,16 @@ var MemberView = Backbone.View.extend({
     this.model.set('name', $('.name-update').val());
     this.model.set('job_title', $('.job-title-update').val());
     this.model.set('url', $('.url-update').val());
+
+    this.model.save(null, {
+      success: function(response) {
+        console.log('Successfully updated blog with _id: ' + response.toJSON()._id);
+      },
+
+      error: function(response) {
+        console.log('Failed to update member!');
+      }
+    });
   },
 
   cancel: function() {
@@ -77,7 +90,15 @@ var MemberView = Backbone.View.extend({
   },
 
   delete: function() {
-    this.model.destroy();
+    this.model.destroy({
+      success: function(response) {
+        console.log('Successfully DELETED member with _id: ' + response.toJSON()._id)
+      },
+
+      error: function() {
+        console.log('Failed to DELETE member!');
+      }
+    });
   },
 
   render: function () {
