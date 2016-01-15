@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Drupal Team Manager App</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+<div class="container">
+    <h1>Drupal Team Manager</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Job title</th>
+            <th>URL</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td><input class="form-control name-input"></td>
+            <td><input class="form-control job-title-input"></td>
+            <td><input class="form-control url-input"></td>
+            <td>
+                <button class="btn btn-primary add-member">Add</button>
+            </td>
+        </tr>
+        </thead>
+
+        <tbody class="members-list">
+
+        </tbody>
+    </table>
+</div>
+
+<script type="text/template" class="members-list-template">
+    <td><span class="name"><%= name %></span></td>
+    <td><span class="job-title"><%= job_title %></span></td>
+    <td><span class="url"><%= url %></span></td>
+
+    <td>
+        <button class="btn btn-warning edit-member">Edit</button>
+        <button class="btn btn-success update-member">Update</button>
+        <button class="btn btn-danger delete-member">Delete</button>
+        <button class="btn btn-danger cancel">Cancel</button>
+    </td>
+</script>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/backbone/backbone.js"></script>
+
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

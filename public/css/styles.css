@@ -1,0 +1,5 @@
+/* Hide Update and Cancel buttons */
+.update-member,
+.cancel {
+    display: none;
+}
